@@ -78,11 +78,13 @@ public class GasEtaActivity extends AppCompatActivity {
             result = UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol);
 
             txt_resultado.setText(result);
+
+            btn_salvar.setEnabled(true);
         }
 
         else {
             Toast.makeText(GasEtaActivity.this, "Por favor, Digitar os dados obrigatórios.", Toast.LENGTH_LONG).show();
-
+            btn_salvar.setEnabled(false);
         }
 
             }
@@ -117,6 +119,8 @@ public class GasEtaActivity extends AppCompatActivity {
             public void onClick(View v) {
               edit_gasolina.setText("");
               edit_etanol.setText("");
+
+              btn_salvar.setEnabled(false);
             }
         });
 
