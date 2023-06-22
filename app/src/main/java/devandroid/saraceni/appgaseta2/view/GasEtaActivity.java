@@ -13,8 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.saraceni.appgaseta2.R;
 import devandroid.saraceni.appgaseta2.apoio.UtilGasEta;
+import devandroid.saraceni.appgaseta2.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
+
+    Combustivel combustivel;
+    Combustivel combustivelGasolina;
+    Combustivel combustivelEtanol;
 
      EditText edit_gasolina;
      EditText edit_etanol;
@@ -88,6 +93,20 @@ public class GasEtaActivity extends AppCompatActivity {
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                combustivelGasolina = new Combustivel();
+                combustivelEtanol = new Combustivel();
+
+                combustivelEtanol.setNomeDoCombustivel("Etanol");
+                combustivelEtanol.setPrecoDoCombustivel(precoEtanol);
+
+                combustivelGasolina.setNomeDoCombustivel("Gasolina");
+                combustivelGasolina.setPrecoDoCombustivel(precoGasolina);
+
+                combustivelGasolina.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
+                combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
+
+
 
             }
         });
