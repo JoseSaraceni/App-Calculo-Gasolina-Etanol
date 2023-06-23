@@ -19,10 +19,10 @@ public class UtilGasEta {
 
     public static String calcularMelhorOpcao(double gasolina, double etanol){
 
-        double precoIdeal = gasolina * 0.70;
+        double precoIdeal = (etanol / gasolina);
         String mensagemRetorno;
 
-        if (etanol <= precoIdeal){
+        if (precoIdeal <= 0.7){
             mensagemRetorno = "Abasteça com Etanol";
         }
         else {

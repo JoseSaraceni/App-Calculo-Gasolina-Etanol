@@ -1,11 +1,15 @@
 package devandroid.saraceni.appgaseta2.controller;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 
+import devandroid.saraceni.appgaseta2.database.GasEtaDb;
 import devandroid.saraceni.appgaseta2.model.Combustivel;
 import devandroid.saraceni.appgaseta2.view.GasEtaActivity;
 
-public class CombustivelController {
+public class CombustivelController extends GasEtaDb {
+
+
 
     SharedPreferences preferences;
     SharedPreferences.Editor dadosPreferences;
@@ -13,6 +17,8 @@ public class CombustivelController {
     public static final String NOME_PREFERENCES = "prof_gaseta";
 
     public CombustivelController(GasEtaActivity activity){
+
+        super(activity);
 
         preferences = activity.getSharedPreferences(NOME_PREFERENCES, 0);
 
@@ -22,10 +28,18 @@ public class CombustivelController {
 
     public void salvar(Combustivel combustivel){
 
+        ContentValues dados = new ContentValues();
+
         dadosPreferences.putString("combustivel", combustivel.getNomeDoCombustivel());
         dadosPreferences.putFloat("precoDoCombustivel", (float) combustivel.getPrecoDoCombustivel());
         dadosPreferences.putString("recomendacao", combustivel.getRecomendacao());
         dadosPreferences.apply();
+
+        dados.put("nomeDoCombustivel", combustivel.getNomeDoCombustivel());
+        dados.put("precoDoCombustivel", combustivel.getPrecoDoCombustivel());
+        dados.put("recomendacao", combustivel.getRecomendacao());
+
+        salvarObjetos("Combustivel", dados);
 
     }
 

@@ -56,7 +56,6 @@ public class GasEtaActivity extends AppCompatActivity {
         btn_limpar = findViewById(R.id.btn_limpar);
         btn_finalizar = findViewById(R.id.btn_finalizar);
 
-
         btn_calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +115,8 @@ public class GasEtaActivity extends AppCompatActivity {
                 controller.salvar(combustivelEtanol);
 
                 controller.salvar(combustivelGasolina);
+
+
             }
         });
 
@@ -142,8 +143,8 @@ public class GasEtaActivity extends AppCompatActivity {
         });
 
 
-        Toast.makeText(GasEtaActivity.this, UtilGasEta.calcularMelhorOpcao(5.12, 3.25),
-        Toast.LENGTH_LONG).show();
+       // Toast.makeText(GasEtaActivity.this, UtilGasEta.calcularMelhorOpcao(5.12, 3.25),
+        //Toast.LENGTH_LONG).show();
     }
 }
 
