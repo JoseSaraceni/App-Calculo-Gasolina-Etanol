@@ -3,6 +3,8 @@ package devandroid.saraceni.appgaseta2.controller;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 
+import java.util.List;
+
 import devandroid.saraceni.appgaseta2.database.GasEtaDb;
 import devandroid.saraceni.appgaseta2.model.Combustivel;
 import devandroid.saraceni.appgaseta2.view.GasEtaActivity;
@@ -41,6 +43,23 @@ public class CombustivelController extends GasEtaDb {
 
         salvarObjetos("Combustivel", dados);
 
+    }
+
+    public List<Combustivel> getListaDeDados(){
+
+        return listarDados();
+    }
+
+    public void alterar(Combustivel combustivel){
+
+        ContentValues dados = new ContentValues();
+
+        dados.put("Id", combustivel.getId());
+        dados.put("nomeDoCombustivel", combustivel.getNomeDoCombustivel());
+        dados.put("precoDoCombustivel", combustivel.getPrecoDoCombustivel());
+        dados.put("recomendacao", combustivel.getRecomendacao());
+
+        alterarObjeto("Combustivel", dados);
     }
 
     public void limpar(){

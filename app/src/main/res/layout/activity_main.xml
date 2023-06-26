@@ -6,10 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.GasEtaActivity">
 
-    <android.widget.
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/corBotoes"/>
+
 
     <TextView android:id="@+id/txt_titulo"
         android:layout_width="match_parent"

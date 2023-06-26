@@ -2,10 +2,20 @@ package devandroid.saraceni.appgaseta2.model;
 
 public class Combustivel {
 
+    private int id;
+
     private String nomeDoCombustivel;
     private double precoDoCombustivel;
 
     private String recomendacao;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 
     public String getNomeDoCombustivel() {
@@ -16,6 +26,7 @@ public class Combustivel {
         this.nomeDoCombustivel = nomeDoCombustivel;
     }
 
+
     public double getPrecoDoCombustivel() {
         return precoDoCombustivel;
     }
@@ -23,6 +34,7 @@ public class Combustivel {
     public void setPrecoDoCombustivel(double precoDoCombustivel) {
         this.precoDoCombustivel = precoDoCombustivel;
     }
+
 
     public String getRecomendacao() {
         return recomendacao;
